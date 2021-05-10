@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                      'to a repository and have your application taking care of' \
                      'upgrading itself.'
   spec.license     = 'MIT'
-  spec.required_ruby_version = '2.6'
+  spec.required_ruby_version = '>= 2.6'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
