@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 module DoraWebUpgrader
-  class ApplicationMailer < ActionMailer::Base
-    default from: 'from@example.com'
-    layout 'mailer'
+  class UpgradeMailer < ApplicationMailer
 
-    def webhook_received(message, payload)
+    def upgrade_started(message, payload)
       @message = message
       @payload = payload
       mail from: WEBMASTER, to: WEBMASTER, subject: "[GGAP] [#{Rails.env}] Webhook received"

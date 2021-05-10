@@ -1,2 +1,3 @@
 DoraWebUpgrader::Engine.routes.draw do
+  post 'upgrade' => 'upgrade#upgrade'
 end
