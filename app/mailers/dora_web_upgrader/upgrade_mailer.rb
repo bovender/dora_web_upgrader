@@ -2,11 +2,10 @@
 
 module DoraWebUpgrader
   class UpgradeMailer < ApplicationMailer
-
     def upgrade_started(message, payload)
       @message = message
       @payload = payload
-      mail from: WEBMASTER, to: WEBMASTER, subject: "[GGAP] [#{Rails.env}] Webhook received"
+      mail subject: "[#{app_identifier} #{Rails.env}] upgrade started"
     end
 
     def upgrade_performed(output, result)
@@ -19,7 +18,13 @@ module DoraWebUpgrader
           else
             'failed'
           end
-      mail from: WEBMASTER, to: WEBMASTER, subject: "[GGAP] [#{Rails.env}] Upgrade #{s}"
+      mail subject: "[#{app_identifier} #{Rails.env}] upgrade #{s}"
+    end
+
+    private
+
+    def app_identifier
+      ::Rails.application.class.parent.name
     end
   end
 end
