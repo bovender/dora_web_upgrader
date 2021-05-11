@@ -10,7 +10,7 @@ module DoraWebUpgrader
       raise 'DoraWebUpgrader.secret is not configured!' if secret.blank?
 
       @payload = JSON.parse(request.raw_post)
-      if @payload.dig('secret') == secret
+      if @payload['secret'] == secret
         @message = 'OK'
         UpgradeJob.perform_later
       else
