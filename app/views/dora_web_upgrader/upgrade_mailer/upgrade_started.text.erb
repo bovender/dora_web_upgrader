@@ -3,5 +3,5 @@
 > <%= @message %>
 
 ```json
-<%= @payload.to_json %>
+<%= JSON.pretty_generate(JSON.parse(@payload)) %>
 ```
