@@ -4,7 +4,8 @@ module DoraWebUpgrader
   class UpgradeMailer < ApplicationMailer
     def upgrade_started(message, payload)
       @message = message
-      @payload = payload.gsub(/("secret"\s*:\s*)"[^"]+"/, '\1"(REDACTED)"')
+      @payload = payload
+      @payload[:secret] = '(REDACTED)' if @payload[:secret]
       mail subject: "[#{app_identifier} #{Rails.env}] upgrade started"
     end
 

@@ -5,7 +5,7 @@ require 'test_helper'
 module DoraWebUpgrader
   class UpgradeMailerTest < ActionMailer::TestCase
     test 'upgrade started notification' do
-      email = UpgradeMailer.upgrade_started('some message', '{"secret":"my_secret"}')
+      email = UpgradeMailer.upgrade_started('some message', { 'secret': 'my_secret' })
       assert_emails 1 do
         email.deliver_now
       end
@@ -15,7 +15,7 @@ module DoraWebUpgrader
     end
 
     test 'secret is being redacted' do
-      email = UpgradeMailer.upgrade_started('some message', '{"secret":"my_secret"}')
+      email = UpgradeMailer.upgrade_started('some message', { 'secret': 'my_secret' })
       assert_emails 1 do
         email.deliver_now
       end

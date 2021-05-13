@@ -3,7 +3,6 @@
 module DoraWebUpgrader
   class UpgradeController < ApplicationController
     layout false
-    skip_forgery_protection
 
     def upgrade
       secret = DoraWebUpgrader.config.secret
