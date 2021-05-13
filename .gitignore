@@ -11,3 +11,4 @@
 .byebug_history
 /config/initializers/dora_web_upgrader.rb
 vendor/
+*.gem
