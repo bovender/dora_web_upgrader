@@ -7,11 +7,11 @@ Gem::Specification.new do |spec|
   spec.version     = DoraWebUpgrader::VERSION
   spec.authors     = 'Daniel Kraus'
   spec.email       = 'bovender@bovender.de'
-  spec.homepage    = 'https://gibhub.com/bovender/dora_web_upgrader'
+  spec.homepage    = 'https://github.com/bovender/dora_web_upgrader'
   spec.summary     = 'Dora Web Upgrader is a Rails engine that facilitates ' \
                      'upgrading a dora-powered Rails application via webhooks.'
-  spec.description = 'Make use of web hooks that are triggered by pushing code' \
-                     'to a repository and have your application taking care of' \
+  spec.description = 'Make use of web hooks that are triggered by pushing code ' \
+                     'to a repository and have your application taking care of ' \
                      'upgrading itself.'
   spec.license     = 'MIT'
   spec.required_ruby_version = '>= 2.6'
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri'] = "#{spec.homepage}/blob/main/CHANGELOG.md"
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md', 'CHANGELOG.md']
 
   spec.add_dependency 'rails', '~> 6.0'
 end
