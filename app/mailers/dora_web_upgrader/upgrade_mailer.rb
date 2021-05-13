@@ -24,7 +24,7 @@ module DoraWebUpgrader
     private
 
     def app_identifier
-      ::Rails.application.class.parent.name
+      ::Rails.application.class.module_parent
     end
   end
 end

@@ -4,7 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in dora_web_upgrader.gemspec.
 gemspec
 
-group :development do
+group :development, :test do
+  gem 'pry'
+  gem 'sidekiq'
   gem 'sqlite3'
 end
 
