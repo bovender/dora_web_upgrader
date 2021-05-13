@@ -20,7 +20,7 @@ e-mail is also send, but no further action is triggered.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dora_web_upgrader', github: 'bovender/dora_web_upgrader', branch: 'main'
+gem 'dora_web_upgrader', '~> 1.0'
 ```
 
 And then execute:
