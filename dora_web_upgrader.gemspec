@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                      'to a repository and have your application taking care of ' \
                      'upgrading itself.'
   spec.license     = 'MIT'
-  spec.required_ruby_version = '>= 2.6'
+  spec.required_ruby_version = '>= 3.1'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md', 'CHANGELOG.md']
 
-  spec.add_dependency 'rails', '~> 6.0'
+  spec.add_dependency 'rails', '~> 7.0'
 end
