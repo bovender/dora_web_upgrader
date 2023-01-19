@@ -9,17 +9,9 @@ module DoraWebUpgrader
       mail subject: "[#{app_identifier} #{Rails.env}] upgrade started"
     end
 
-    def upgrade_performed(output, result)
-      @output = output
-      s = case result
-          when -1
-            'dry run'
-          when 0
-            'succeeded'
-          else
-            'failed'
-          end
-      mail subject: "[#{app_identifier} #{Rails.env}] upgrade #{s}"
+    def upgrade_performed(message, log)
+      @message, @log = message, log
+      mail subject: "[#{app_identifier} #{Rails.env}] upgrade: #{message}"
     end
 
     private

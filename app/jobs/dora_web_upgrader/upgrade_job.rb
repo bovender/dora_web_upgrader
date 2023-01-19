@@ -8,16 +8,11 @@ module DoraWebUpgrader
       # Do not upgrade developement environemnts as this might inadvertently
       # overwrite uncommitted changes.
       if %w[production staging].include? Rails.env
-        logger.warn '******** PERFORMING APPLICATION UPGRADE ********'
-        output = `/usr/local/bin/upgrade-app.sh 2>&1`
-        logger.warn output
-        result = $CHILD_STATUS.exitstatus
+        logger.warn '******** DoraWebUpgrader: PERFORMING APPLICATION UPGRADE ********'
+        exec "/usr/local/bin/upgrade-app.sh"
       else
-        output = "Rails environment: #{Rails.env} -- not upgrading..."
-        logger.warn output
-        result = -1
+        logger.warn "Rails environment: #{Rails.env} -- not upgrading..."
       end
-      UpgradeMailer.upgrade_performed(output, result).deliver_now
     end
   end
 end
