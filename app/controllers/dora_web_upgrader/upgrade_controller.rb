@@ -7,18 +7,13 @@ module DoraWebUpgrader
 
     def upgrade
       secret = DoraWebUpgrader.config.secret
-      raise 'DoraWebUpgrader.secret is not configured!' if secret.blank?
+      raise 'DoraWebUpgrader.config.secret is not configured!' if secret.blank?
 
       @payload = JSON.parse(request.raw_post)
-      if @payload['secret'] == secret
-        @message = 'ok'
-        UpgradeJob.perform_later
-      else
-        @message = 'invalid secret'
-      end
-
-      UpgradeMailer.upgrade_started(@message, @payload).deliver_later
-
+      ok = @payload['secret'] == secret
+      @message = ok ? 'ok' : 'invalid secret'
+      UpgradeMailer.upgrade_started(@message, @payload).deliver_now
+      UpgradeJob.perform_now if ok
       render json: { message: @message }
     end
   end
