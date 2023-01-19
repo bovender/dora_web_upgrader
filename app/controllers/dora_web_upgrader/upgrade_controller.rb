@@ -2,6 +2,7 @@
 
 module DoraWebUpgrader
   class UpgradeController < ApplicationController
+    protect_from_forgery with: :null_session
     layout false
 
     def upgrade
