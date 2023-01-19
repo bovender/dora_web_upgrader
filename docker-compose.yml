@@ -4,7 +4,7 @@ services:
     build:
       context: ./docker
     command: bundle exec rails server -u puma -p 3000 -b '0.0.0.0'
-    # command: bash
+    # command: bash -i
     tty: true
     entrypoint: docker/entrypoint.sh
     volumes:
