@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The e-mail report did not work reliably.
 - Fixed "invalid authenticity token" errors
 - Fixed several typos in the gemspec file.
 
