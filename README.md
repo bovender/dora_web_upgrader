@@ -74,7 +74,7 @@ in the Rails container and run the tests like so:
 
 ```bash
 $ cd dora_web_upgrader/
-$ docker-compose -f ../dora/docker-compose.yml up -d
+$ docker compose -f ../dora/docker-compose.yml --env-file .env up -d
 Creating network "dora_default" with the default driver
 Creating dora_selenium_1 ... done
 Creating dora_db_1       ... done
@@ -93,6 +93,11 @@ Run options: --seed 41689
 Finished in 0.180743s, 33.1962 runs/s, 94.0560 assertions/s.
 6 runs, 17 assertions, 0 failures, 0 errors, 0 skips
 ```
+
+Note that with recent versions of docker compose, the `.env` file is no longer
+read from the current working directory, but from the directory where the
+`docker-compose.yml` file resides. Therefore, you must add the `--env-file`
+option.
 
 (There are several containers included in the `docker-compose.yml` file that
 are not needed to test DoraWebUpgrader, but are part of [dora].)
